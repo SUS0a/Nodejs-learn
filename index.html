@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/dracula.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <section data-markdown>
+		  <textarea data-template>
+			## Node.js 基础教程
+			---
+			### node.js 是什么？
+            1. node.js 是一个开发平台，就像Java开发平台、.Net开发平台、PHP开发平台、Apple开发平台一样。
+            2. 该平台使用的编程语言是 JavaScript 语言。
+            3. node.js 平台是基于 Chrome V8 JavaScript 引擎构建。
+            4. 基于 node.js 可以开发控制台程序（命令行程序、CLI程序）、桌面应用程序（GUI）（借助 node-webkit、electron 等框架实现）、Web 应用程序（网站）
+			---
+            ### 特点
+            1. 事件驱动(当事件被触发时，执行传递过去的回调函数)
+            2. 非阻塞 I/O 模型（当执行I/O操作时，不会阻塞线程）
+            3. 单线程
+            4. 跨平台
+			---
+            ### 优势
+            1. 适合 I/O 密集型应用，高并发性能好
+            2. 前后端语言统一，方便全栈开发
+            3. 丰富的第三方模块生态
+			---
+			## 幻燈片 2
+
+            // 1. 加载 http 模块
+            var http = require('http');
+
+            // 2. 创建 http 服务，并监听 request 事件
+            var server = http.createServer(function (req, res) {
+              // 1. 获取用户请求的路径
+              // console.log(req.url);
+              // res.end(req.url); // 表示把 req.url 响应给用户，同时结束响应
+
+              // 2. 判断用户的请求路径给出不同的响应
+              res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+
+              if (req.url === '/' || req.url === '/index') {
+                res.end('这个是首页。');
+              } else if (req.url === '/login') {
+                res.end('这个是登录页。');
+              } else if (req.url === '/list') {
+                res.end('这个是列表页。');
+              } else if (req.url === '/register') {
+                res.end('这个是注册页。');
+              } else {
+                res.end('404，找不到该页面。');
+              }
+            });
+
+
+            // 3. 启动服务
+            server.listen(9001, function () {
+              console.log('http://localhost:9001');
+            });
+			---
+			## 幻燈片 3
+		  </textarea>
+            </section>
+        </section>
+        <!--        <section>Slide 1</section>-->
+        <!--        <section>Slide 2</section>-->
+    </div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+</script>
+</body>
+</html>
