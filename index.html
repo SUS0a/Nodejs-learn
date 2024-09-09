@@ -396,9 +396,23 @@ myEmitter.removeListener('event', callback);
         server.listen(9001, function () {
           console.log('http://localhost:9001');
         });
-                ---
-                ## 幻燈片 3
-                ---
+---
+##  Nodejs 中的事件循环机制
+- 在浏览器事件循环中，javascript 在浏览器中的事件循环机制是根据 HTML5 定义的规范来实现。
+- 而在 NodeJS 中，事件循环是基于 Libuv 实现，Libuv 是一个多平台的专注于异步 IO 的库。
+- NodeJS 中的事件循环是一个先进先出的回调队列。
+
+---
+## 幻燈片 3
+node的事件循环共有六个阶段，在一次事件循环中这六个阶段按顺序会一直循环执行，直至事件处理完成。
+每一个阶段有一个队列，event loop执行到该阶段时，会该阶段的队列里的所有callback，当队列callback为空时，或callback执行到上限的时，就跳至下一阶段进行执行。
+---
+## 幻燈片 3
+---
+## 幻燈片 3
+---
+## 幻燈片 3
+---
               </textarea>
             </section>
         </section>
