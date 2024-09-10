@@ -88,15 +88,15 @@
 ---
 ### writeFile
 异步写入，`writeFile` 与 `writeFileSync` 的前三个参数相同，最后一个参数为回调函数，函数内有一个参数 `err`（错误），回调函数在文件写入数据成功后执行。
-    ```javascript
-    const fs = require("fs");
-    fs.writeFile("2.txt", "Hello world", err => {
-        if (!err) {
-            fs.readFile("2.txt", "utf8", (err, data) => {
-                console.log(data); // Hello world
-            });
-        }
-    });
+```javascript
+const fs = require("fs");
+fs.writeFile("2.txt", "Hello world", err => {
+    if (!err) {
+        fs.readFile("2.txt", "utf8", (err, data) => {
+            console.log(data); // Hello world
+        });
+    }
+});
 ---
 ### appendFileSync
 - 第一个参数为写入文件的路径或文件描述符。
@@ -110,15 +110,15 @@
 ---
 ### appendFile
 - 异步追加写入方法 `appendFile` 与 `appendFileSync` 的前三个参数相同，最后一个参数为回调函数，函数内有一个参数 `err`（错误），回调函数在文件追加写入数据成功后执行。
-    ```javascript
-    const fs = require("fs");
-    fs.appendFile("3.txt", " world", err => {
-        if (!err) {
-            fs.readFile("3.txt", "utf8", (err, data) => {
-                console.log(data); // 假设3.txt原有内容为"Hello"，则输出为"Hello world"
-            });
-        }
-    });
+```javascript
+const fs = require("fs");
+fs.appendFile("3.txt", " world", err => {
+    if (!err) {
+        fs.readFile("3.txt", "utf8", (err, data) => {
+            console.log(data); // 假设3.txt原有内容为"Hello"，则输出为"Hello world"
+        });
+    }
+});
 ---
 ### copyFileSync
 - 同步拷贝
@@ -290,16 +290,12 @@ server.listen(8000, () => {
 ```javascript
 const fs = require('fs');
 const zlib = require('zlib');
-
 // 创建一个可读流
 const readableStream = fs.createReadStream('input.txt');
-
 // 创建一个转换流，用于压缩数据
 const transformStream = zlib.createGzip();
-
 // 创建一个可写流，用于将压缩后的数据写入文件
 const writableStream = fs.createWriteStream('output.gz');
-
 // 将可读流、转换流和可写流连接起来
 readableStream.pipe(transformStream).pipe(writableStream);
 ---
@@ -432,12 +428,6 @@ node的事件循环共有六个阶段，在一次事件循环中这六个阶段�
 ###### 6. Close Callbacks（关闭回调阶段）
 - 执行一些关闭回调函数，如 `socket.on('close', ...)`。
 
----
-## 幻燈片 3
----
-## 幻燈片 3
----
-## 幻燈片 3
 ---
               </textarea>
             </section>
